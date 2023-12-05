@@ -1,0 +1,69 @@
+%! \usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+\begin{tikzpicture}[scale=1.000000,x=1pt,y=1pt]
+\filldraw[color=white] (0.000000, -7.500000) rectangle (196.000000, 22.500000);
+% Drawing wires
+% Line 2: a W |0\rangle
+\draw[color=black] (0.000000,15.000000) -- (180.000000,15.000000);
+\draw[color=black] (180.000000,14.500000) -- (196.000000,14.500000);
+\draw[color=black] (180.000000,15.500000) -- (196.000000,15.500000);
+\draw[color=black] (0.000000,15.000000) node[left] {$|0\rangle$};
+% Line 3: b W |0\rangle
+\draw[color=black] (0.000000,0.000000) -- (116.000000,0.000000);
+\draw[color=black] (116.000000,-0.500000) -- (196.000000,-0.500000);
+\draw[color=black] (116.000000,0.500000) -- (196.000000,0.500000);
+\draw[color=black] (0.000000,0.000000) node[left] {$|0\rangle$};
+% Done with wires; drawing gates
+% Line 4: a / n
+\draw (10.000000, 9.000000) -- (18.000000, 21.000000);
+\draw (16.000000, 18.000000) node[right] {$\scriptstyle{n}$};
+% Line 5: b / n
+\draw (10.000000, -6.000000) -- (18.000000, 6.000000);
+\draw (16.000000, 3.000000) node[right] {$\scriptstyle{n}$};
+% Line 7: a H
+\begin{scope}
+\draw[fill=white] (44.000000, 15.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (44.000000, 15.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (44.000000, 15.000000) node {$H$};
+\end{scope}
+% Line 9: a b G $U_f$ width=20
+\draw (80.000000,15.000000) -- (80.000000,0.000000);
+\begin{scope}
+\draw[fill=white] (80.000000, 7.500000) +(-45.000000:14.142136pt and 19.091883pt) -- +(45.000000:14.142136pt and 19.091883pt) -- +(135.000000:14.142136pt and 19.091883pt) -- +(225.000000:14.142136pt and 19.091883pt) -- cycle;
+\clip (80.000000, 7.500000) +(-45.000000:14.142136pt and 19.091883pt) -- +(45.000000:14.142136pt and 19.091883pt) -- +(135.000000:14.142136pt and 19.091883pt) -- +(225.000000:14.142136pt and 19.091883pt) -- cycle;
+\draw (80.000000, 7.500000) node {$U_f$};
+\end{scope}
+% Line 11: b M
+\draw[fill=white] (110.000000, -6.000000) rectangle (122.000000, 6.000000);
+\draw[very thin] (116.000000, 0.600000) arc (90:150:6.000000pt);
+\draw[very thin] (116.000000, 0.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (116.000000, -5.400000) -- +(80:10.392305pt);
+% Line 13: a H
+\begin{scope}
+\draw[fill=white] (148.000000, 15.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (148.000000, 15.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (148.000000, 15.000000) node {$H$};
+\end{scope}
+% Line 15: a M
+\draw[fill=white] (174.000000, 9.000000) rectangle (186.000000, 21.000000);
+\draw[very thin] (180.000000, 15.600000) arc (90:150:6.000000pt);
+\draw[very thin] (180.000000, 15.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (180.000000, 9.600000) -- +(80:10.392305pt);
+% Done with gates; drawing ending labels
+% Done with ending labels; drawing cut lines and comments
+\draw[dashed] (28.000000, -7.500000) -- (28.000000, 22.500000);
+\draw[dashed] (60.000000, -7.500000) -- (60.000000, 22.500000);
+\draw[dashed] (100.000000, -7.500000) -- (100.000000, 22.500000);
+\draw[dashed] (132.000000, -7.500000) -- (132.000000, 22.500000);
+\draw[dashed] (164.000000, -7.500000) -- (164.000000, 22.500000);
+% Line 6: @ 0 1 %% $|\psi_0\rangle$
+\draw (30.000000, -11.500000) node[text width=144pt,below,text centered] {$|\psi_0\rangle$};
+% Line 8: @ 1 2 %% $|\psi_1\rangle$
+\draw (64.000000, -11.500000) node[text width=144pt,below,text centered] {$|\psi_1\rangle$};
+% Line 10: @ 2 3 %% $|\psi_2\rangle$
+\draw (96.000000, -11.500000) node[text width=144pt,below,text centered] {$|\psi_2\rangle$};
+% Line 12: @ 3 4 %% $|\psi_3\rangle$
+\draw (132.000000, -11.500000) node[text width=144pt,below,text centered] {$|\psi_3\rangle$};
+% Line 14: @ 4 5 %% $|\psi_4\rangle$
+\draw (164.000000, -11.500000) node[text width=144pt,below,text centered] {$|\psi_4\rangle$};
+% Done with comments
+\end{tikzpicture}
