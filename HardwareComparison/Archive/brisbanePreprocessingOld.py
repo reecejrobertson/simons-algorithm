@@ -4,11 +4,13 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 brisbaneDir = 'IBMBrisbane'
-brisbaneSimDir = 'IBMBrisbaneSimulator'
+washingtonDir = 'IBMWashingtonNoisySimulator'
+sherbrookeDir = 'IBMSherbrookeNoisySimulator'
 shots = 8192
 
 brisbaneError = np.zeros(11)
-brisbaneSimError = np.zeros(11)
+sherbrookeError = np.zeros(11)
+washingtonError = np.zeros(11)
 qubitCounts = np.arange(4, 25, 2)
 
 for filename in os.listdir(brisbaneDir):
@@ -55,12 +57,12 @@ for filename in os.listdir(brisbaneDir):
 
     brisbaneError[int(numQubits) - 2] = errorCount/shots
 
-for filename in os.listdir(brisbaneSimDir):
+for filename in os.listdir(washingtonDir):
 
     numQubits = int(filename[6:-4])
     secretKey = '1' * numQubits
 
-    file = os.path.join(brisbaneSimDir, filename)
+    file = os.path.join(washingtonDir, filename)
     with open(file, 'r') as fin:
         data = fin.read()
 
@@ -74,10 +76,32 @@ for filename in os.listdir(brisbaneSimDir):
         if not isOrthogonal:
             errorCount += value
 
-    brisbaneSimError[int(numQubits) - 2] = errorCount/shots
+    washingtonError[int(numQubits) - 2] = errorCount/shots
+
+for filename in os.listdir(sherbrookeDir):
+
+    numQubits = int(filename[6:-4])
+    secretKey = '1' * numQubits
+
+    file = os.path.join(sherbrookeDir, filename)
+    with open(file, 'r') as fin:
+        data = fin.read()
+
+    countsDict = ast.literal_eval(data)
+
+    errorCount = 0
+
+    for key, value in countsDict.items():
+        actualKey = key[::-1][:numQubits]
+        isOrthogonal = (sum([int(actualKey[i]) * int(secretKey[i]) for i in range(numQubits)]) % 2) == 0
+        if not isOrthogonal:
+            errorCount += value
+
+    sherbrookeError[int(numQubits) - 2] = errorCount/shots
 
 plt.plot(qubitCounts, brisbaneError*100, '.-', label='IBM Brisbane')
-plt.plot(qubitCounts[:8], brisbaneSimError[:8]*100, '.-', label='IBM Brisbane Noisy Simulator')
+plt.plot(qubitCounts[:8], sherbrookeError[:8]*100, '.-', label='IBM Sherbrooke Noisy Simulator')
+plt.plot(qubitCounts[:8], washingtonError[:8]*100, '.-', label='IBM WashingtonV2 Noisy Simulator')
 plt.xticks(qubitCounts)
 plt.xlabel('Number of Qubits')
 plt.ylabel('Percentage of Invalid Outputs')
