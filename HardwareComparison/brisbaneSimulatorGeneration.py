@@ -1,7 +1,7 @@
+from qiskit import transpile
 from qiskit import QuantumCircuit
 from qiskit.providers.ibmq import IBMQ
 from qiskit_aer.aerprovider import AerSimulator
-from qiskit import transpile
 
 # Define the needed constants.
 N = 8
