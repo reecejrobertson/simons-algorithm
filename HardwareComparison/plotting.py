@@ -185,7 +185,7 @@ for filename in os.listdir(harmonySimDir):
 harmonySimError /= (shots * ionqRepetitions)
 
 plt.plot(qubitCounts, brisbaneError*100, '.-', label='IBM Brisbane')
-plt.plot(qubitCounts, brisbaneError2*100, '.-', label='IBM Brisbane Repeat')
+plt.plot(qubitCounts[:9], brisbaneError2[:9]*100, '.-', label='IBM Brisbane Repeat')
 plt.plot(qubitCounts[:7], brisbaneSimError[:7]*100, '.-', label='IBM Brisbane Simulator')
 plt.plot(qubitCounts, ariaSimError*100, '.-', label='IonQ Aria Simulator')
 plt.plot(qubitCounts[:4], harmonySimError[:4]*100, '.-', label='IonQ Harmony Simulator')
