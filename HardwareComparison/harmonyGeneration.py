@@ -9,18 +9,17 @@ from qiskit.providers.jobstatus import JobStatus
 warnings.filterwarnings("ignore")
 
 # Define the needed constants.
-N = 12
-ITER = 30
+N = 2
+ITER = 1
 SHOTS = 8192
 
 # Load the account with the provided API token.
-with open('../IonQ_API.txt', 'r') as file:
+with open('../IonQ_Paid_API.txt', 'r') as file:
     token = file.read()
 provider = IonQProvider(token)
 
 # Get the IonQ Aria1 noisy backend.
-backend = provider.get_backend('ionq_simulator')
-backend.set_options(noise_model='aria-1')
+backend = provider.get_backend('ionq_qpu.harmony')
 
 # For each iteration:
 for i in range(1, ITER+1):
@@ -58,36 +57,19 @@ for i in range(1, ITER+1):
         # Check if job is done.
         while job.status() is not JobStatus.DONE:
             print('\t\tJob status is', job.status() )
-            time.sleep(5)
+            time.sleep(1800)
 
         # When it is done, save the results with sharpening.
         print('\t\tJob status is', job.status())
         result = job.result(sharpen=True).get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e1s1.txt', 'w+'
+            f'IonQHarmony/n{n}i{i}s1.txt', 'w+'
         ) as file:
             file.write(str(result))
 
         # Also save the results without sharpening.
         result = job.result().get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e1s0.txt', 'w+'
-        ) as file:
-            file.write(str(result))
-
-        # Repeat the job submission without error mitigation (EM).
-        job = backend.run(transpiled_circuit, shots=SHOTS)
-        while job.status() is not JobStatus.DONE:
-            print('\t\tJob status is', job.status() )
-            time.sleep(5)
-        print('\t\tJob status is', job.status())
-        result = job.result(sharpen=True).get_counts()
-        with open(
-            f'IonQAriaSimulator/n{n}i{i}e0s1.txt', 'w+'
-        ) as file:
-            file.write(str(result))
-        result = job.result().get_counts()
-        with open(
-            f'IonQAriaSimulator/n{n}i{i}e0s0.txt', 'w+'
+            f'IonQHarmony/n{n}i{i}s0.txt', 'w+'
         ) as file:
             file.write(str(result))

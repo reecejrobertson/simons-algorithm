@@ -9,7 +9,7 @@ from qiskit.providers.jobstatus import JobStatus
 warnings.filterwarnings("ignore")
 
 # Define the needed constants.
-N = 12
+N = 5
 ITER = 30
 SHOTS = 8192
 
@@ -20,7 +20,7 @@ provider = IonQProvider(token)
 
 # Get the IonQ Aria1 noisy backend.
 backend = provider.get_backend('ionq_simulator')
-backend.set_options(noise_model='aria-1')
+backend.set_options(noise_model='harmony')
 
 # For each iteration:
 for i in range(1, ITER+1):
@@ -64,14 +64,14 @@ for i in range(1, ITER+1):
         print('\t\tJob status is', job.status())
         result = job.result(sharpen=True).get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e1s1.txt', 'w+'
+            f'IonQHarmonySimulator/n{n}i{i}e1s1.txt', 'w+'
         ) as file:
             file.write(str(result))
 
         # Also save the results without sharpening.
         result = job.result().get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e1s0.txt', 'w+'
+            f'IonQHarmonySimulator/n{n}i{i}e1s0.txt', 'w+'
         ) as file:
             file.write(str(result))
 
@@ -83,11 +83,11 @@ for i in range(1, ITER+1):
         print('\t\tJob status is', job.status())
         result = job.result(sharpen=True).get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e0s1.txt', 'w+'
+            f'IonQHarmonySimulator/n{n}i{i}e0s1.txt', 'w+'
         ) as file:
             file.write(str(result))
         result = job.result().get_counts()
         with open(
-            f'IonQAriaSimulator/n{n}i{i}e0s0.txt', 'w+'
+            f'IonQHarmonySimulator/n{n}i{i}e0s0.txt', 'w+'
         ) as file:
             file.write(str(result))

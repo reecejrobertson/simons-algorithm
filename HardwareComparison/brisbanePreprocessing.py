@@ -6,9 +6,13 @@ from matplotlib import pyplot as plt
 brisbaneDir = 'IBMBrisbane'
 brisbaneSimDir = 'IBMBrisbaneSimulator'
 shots = 8192
+repetitions = 10
 
 brisbaneError = np.zeros(11)
-brisbaneSimError = np.zeros(11)
+brisbaneSimError0 = np.zeros(11)
+brisbaneSimError1 = np.zeros(11)
+brisbaneSimError2 = np.zeros(11)
+brisbaneSimError3 = np.zeros(11)
 qubitCounts = np.arange(4, 25, 2)
 
 for filename in os.listdir(brisbaneDir):
@@ -57,7 +61,8 @@ for filename in os.listdir(brisbaneDir):
 
 for filename in os.listdir(brisbaneSimDir):
 
-    numQubits = int(filename[6:-4])
+    optimization = int(filename[filename.find('l')+1:filename.find('i')])
+    numQubits = int(filename[1:filename.find('l')])
     secretKey = '1' * numQubits
 
     file = os.path.join(brisbaneSimDir, filename)
@@ -74,13 +79,28 @@ for filename in os.listdir(brisbaneSimDir):
         if not isOrthogonal:
             errorCount += value
 
-    brisbaneSimError[int(numQubits) - 2] = errorCount/shots
+    if optimization == 0:
+        brisbaneSimError0[int(numQubits) - 2] += errorCount
+    if optimization == 1:
+        brisbaneSimError1[int(numQubits) - 2] += errorCount
+    if optimization == 2:
+        brisbaneSimError2[int(numQubits) - 2] += errorCount
+    if optimization == 3:
+        brisbaneSimError3[int(numQubits) - 2] += errorCount
 
-plt.plot(qubitCounts, brisbaneError*100, '.-', label='IBM Brisbane')
-plt.plot(qubitCounts[:8], brisbaneSimError[:8]*100, '.-', label='IBM Brisbane Noisy Simulator')
+brisbaneSimError0 /= (shots * repetitions)
+brisbaneSimError1 /= (shots * repetitions)
+brisbaneSimError2 /= (shots * repetitions)
+brisbaneSimError3 /= (shots * repetitions)
+
+plt.plot(qubitCounts, brisbaneError*100, '.-', label='Brisbane True Data')
+plt.plot(qubitCounts[:7], brisbaneSimError0[:7]*100, '.-', label='Brisbane Simulator Optimization 0')
+plt.plot(qubitCounts[:7], brisbaneSimError1[:7]*100, '.-', label='Brisbane Simulator Optimization 1')
+plt.plot(qubitCounts[:7], brisbaneSimError2[:7]*100, '.-', label='Brisbane Simulator Optimization 2')
+plt.plot(qubitCounts[:7], brisbaneSimError3[:7]*100, '.-', label='Brisbane Simulator Optimization 3')
 plt.xticks(qubitCounts)
 plt.xlabel('Number of Qubits')
 plt.ylabel('Percentage of Invalid Outputs')
 plt.legend(loc='best')
-plt.title('Simon\'s Algorithm Hardware Error Rate Comparison (8192 shots)')
-plt.savefig('errorComparison.png', dpi=300)
+plt.title('Simon\'s Algorithm IBM Error Rate Comparison (8192 shots)')
+plt.savefig('brisbaneError.png', dpi=300)
