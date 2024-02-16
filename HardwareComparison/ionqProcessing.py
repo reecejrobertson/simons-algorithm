@@ -86,7 +86,7 @@ for filename in os.listdir(harmonySimDir):
 
 array /= shots
 simArray /= (simShots * repetitions)
-harmonySimArray /= (shots * repetitions)
+harmonySimArray /= (simShots * repetitions)
 
 plt.plot(qubitCounts, array*100, '.-', label='Forte')
 plt.plot(qubitCounts[:11], simArray*100, '.-', label='Aria Simulator')
