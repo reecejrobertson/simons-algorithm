@@ -141,12 +141,12 @@ for filename in os.listdir(harmonySimDir):
 
 harmonySimError /= (shots * ionqRepetitions)
 
-plt.plot(qubitCounts, brisbaneError*100, '.-', label='IBM Brisbane')
-plt.plot(qubitCounts[:7], brisbaneSimError[:7]*100, '.-', label='IBM Brisbane Simulator')
-# plt.plot(qubitCounts, ariaSimError*100, '.-', label='IonQ Aria Simulator')
-# plt.plot(qubitCounts[:4], harmonySimError[:4]*100, '.-', label='IonQ Harmony Simulator')
+plt.plot(qubitCounts, brisbaneError*100, '.-', label='Brisbane')
+plt.plot(qubitCounts[:7], brisbaneSimError[:7]*100, '.-', label='Brisbane Simulator')
+# plt.plot(qubitCounts, ariaSimError*100, '.-', label='Aria Simulator')
+# plt.plot(qubitCounts[:4], harmonySimError[:4]*100, '.-', label='Harmony Simulator')
 plt.xticks(qubitCounts)
 plt.xlabel('Number of Qubits')
 plt.ylabel('Percentage of Invalid Outputs')
 plt.legend(loc='best')
-plt.savefig('errorComparison.png', dpi=300)
+plt.savefig('IBMError.png', dpi=300)
