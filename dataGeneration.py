@@ -41,8 +41,6 @@ def executeSimons(
                 backend = provider.get_backend('ionq_harmony')
             case 'aria':
                 backend = provider.get_backend('ionq_aria-1')
-            case 'forte':
-                backend = provider.get_backend('ionq_forte')
             case 'harmonysimulator':
                 backend = provider.get_backend('ionq_simulator')
                 backend.set_options(noise_model='harmony')
@@ -99,8 +97,6 @@ def executeSimons(
 #               N=5, iterations=1, shots=8192, sleepTime=1800)
 # executeSimons('APIs/IonQ_Paid_API.txt', 'aria', 'IonQAria',
 #               N=12, iterations=1, shots=4096, sleepTime=1800)
-# executeSimons('APIs/IonQ_Paid_API.txt', 'forte', 'IonQForte',
-#               N=18, iterations=1, shots=4096, sleepTime=1800)
 # executeSimons('APIs/IonQ_API.txt', 'ariaSimulator', 'IonQAriaSimulator')
 # executeSimons('APIs/IonQ_API.txt', 'harmonySimulator', 'IonQHarmonySimulator')
 # executeSimons('APIs/IBM_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator')
