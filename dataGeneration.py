@@ -2,7 +2,7 @@ import time
 import warnings
 from qiskit import transpile
 from qiskit import QuantumCircuit
-from qiskit_ionq import IonQProvider, ErrorMitigation
+from qiskit_ionq import IonQProvider
 from qiskit.providers.jobstatus import JobStatus
 from qiskit.providers.ibmq import IBMQ
 from qiskit_aer.aerprovider import AerSimulator
@@ -25,7 +25,7 @@ def executeSimons(
     if 'IonQ' in apiToken:
         provider = IonQProvider(token)
     elif 'IBM' in apiToken:
-        IBMQ.save_account(token=apiToken, overwrite=True)
+        IBMQ.save_account(token=token, overwrite=True)
         provider = IBMQ.load_account()
     else:
         raise ValueError('Invalid API token provided.')
@@ -99,6 +99,9 @@ def executeSimons(
 #               N=12, iterations=1, shots=4096, sleepTime=1800)
 # executeSimons('APIs/IonQ_API.txt', 'ariaSimulator', 'IonQAriaSimulator')
 # executeSimons('APIs/IonQ_API.txt', 'harmonySimulator', 'IonQHarmonySimulator')
-# executeSimons('APIs/IBM_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator')
-# executeSimons('APIs/IBM_API.txt', 'osakaSimulator', 'IBMOsakaSimulator')
-# executeSimons('APIs/IBM_API.txt', 'kyotoSimulator', 'IBMKyotoSimulator')
+# executeSimons('APIs/IBM_API.txt', 'kyotoSimulator', 'IBMKyotoSimulator',
+#               N=7, sleepTime=0.5)
+# executeSimons('APIs/IBM_API.txt', 'osakaSimulator', 'IBMOsakaSimulator',
+#               N=7, sleepTime=0.5)
+# executeSimons('APIs/IBM_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator',
+#               N=7, sleepTime=0.5)
