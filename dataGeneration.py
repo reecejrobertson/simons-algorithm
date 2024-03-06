@@ -11,9 +11,10 @@ from qiskit_aer.aerprovider import AerSimulator
 warnings.filterwarnings("ignore")
 
 def executeSimons(
-        apiToken, device, folderName, N=12, iterations=30, shots=8192, sleepTime=5
+        apiToken, device, folderName,
+        N=12, iterations=30, shots=8192, sleepTime=5
     ):
-    # TODO: Docstring; Testing.
+    # TODO: Docstring. Note where IBM device data comes from.
 
     # Load the account with the provided API token.
     provider = None
@@ -92,7 +93,7 @@ def executeSimons(
             ) as file:
                 file.write(str(result))
 
-# Calls to run Simon's algorithm on the various supported backends.
+# # Calls to run Simon's algorithm on the various supported backends.
 # executeSimons('APIs/IonQ_Paid_API.txt', 'harmony', 'IonQHarmony',
 #               N=5, iterations=1, shots=8192, sleepTime=1800)
 # executeSimons('APIs/IonQ_Paid_API.txt', 'aria', 'IonQAria',
