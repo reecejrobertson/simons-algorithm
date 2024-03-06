@@ -11,10 +11,20 @@ from qiskit_aer.aerprovider import AerSimulator
 warnings.filterwarnings("ignore")
 
 def executeSimons(
-        apiToken, device, folderName,
+        apiToken, device, directory,
         N=12, iterations=30, shots=8192, sleepTime=5
     ):
-    # TODO: Docstring. Note where IBM device data comes from.
+    '''
+    A function to run Simon's algorithm on various hardware platforms.
+    Parameters:
+        apiToken (string)   : The API token used for access.
+        device (string)     : The name of the device on which to run.
+        directory (string)  : The name of the directory in which to save data.
+        N (int)             : Defines the size of the largest job (2*N).
+        iterations (int)    : The number of times to repeat the experiment.
+        shots (int)         : The number of iterations for each job.
+        sleepTime (int)     : The time to pause while querying job status.
+    '''
 
     # Load the account with the provided API token.
     provider = None
@@ -35,7 +45,8 @@ def executeSimons(
     for i in range(1, iterations+1):
         print(f'Iteration {i} of {iterations}:')
 
-        # Get the specified backend.
+        # Get a backend. Can be IBM simulators and IonQ devices and simulators.
+        # Note that IBM devices were accessed using the 'Composer' interface.
         backend = None
         match device.lower():
             case 'harmony':
@@ -89,7 +100,7 @@ def executeSimons(
             print('\t\tJob status is', job.status())
             result = job.result().get_counts()
             with open(
-                f'data/{folderName}/n{n}i{i}.txt', 'w+'
+                f'data/{directory}/n{n}i{i}.txt', 'w+'
             ) as file:
                 file.write(str(result))
 
