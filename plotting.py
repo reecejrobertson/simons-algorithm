@@ -103,7 +103,7 @@ def plotLine(
 
     # Trim the error array and create a qubit count array of the proper size.
     errorArray = np.trim_zeros(errorArray)
-    qubitCounts = np.arange(4, 2*len(errorArray)+3, 2)
+    qubitCounts = np.arange(2, len(errorArray)+2, 1)
 
     # Plot the error array against the qubit count array.
     plt.plot(qubitCounts, errorArray*100, lineStyle, label=label, linewidth=2)
@@ -147,8 +147,8 @@ def constructPlot(deviceNames, figureName, specialColors=False):
         )
 
     # Label and save the plot.
-    plt.xlabel('Number of Qubits')
-    plt.ylabel('Percentage of Invalid Outputs')
+    plt.xlabel('Problem Size ($n$)')
+    plt.ylabel('Algorithmic Error')
     plt.legend(loc='best')
     plt.savefig(f'figures/{figureName}', dpi=300)
 
