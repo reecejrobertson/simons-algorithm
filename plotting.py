@@ -148,7 +148,7 @@ def constructPlot(deviceNames, figureName, specialColors=False):
 
     # Label and save the plot.
     plt.xlabel('Problem Size ($n$)')
-    plt.ylabel('Algorithmic Error')
+    plt.ylabel('Algorithmic Error (%)')
     plt.legend(loc='best')
     plt.savefig(f'figures/{figureName}', dpi=300)
 
