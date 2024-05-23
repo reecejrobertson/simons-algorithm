@@ -83,6 +83,7 @@ def executeSimons(
                 circuit.cx(m, n+m)
             for m in range(n):
                 circuit.cx(0, n+m)
+                # break   # Uncomment for "simple" oracle.
             for m in range(n):
                 circuit.h(m)
             circuit.measure_all()

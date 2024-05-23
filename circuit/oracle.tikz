@@ -1,0 +1,163 @@
+%! \usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+\begin{tikzpicture}[scale=1.000000,x=1pt,y=1pt]
+\filldraw[color=white] (0.000000, -7.500000) rectangle (244.000000, 82.500000);
+% Drawing wires
+% Line 2: a b c W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,75.000000) -- (228.000000,75.000000);
+\draw[color=black,dotted] (228.000000,74.500000) -- (244.000000,74.500000);
+\draw[color=black,dotted] (228.000000,75.500000) -- (244.000000,75.500000);
+%   Deferring wire label at (0.000000,75.000000)
+% Line 2: a b c W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,60.000000) -- (228.000000,60.000000);
+\draw[color=black,dotted] (228.000000,59.500000) -- (244.000000,59.500000);
+\draw[color=black,dotted] (228.000000,60.500000) -- (244.000000,60.500000);
+%   Deferring wire label at (0.000000,60.000000)
+% Line 2: a b c W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,45.000000) -- (228.000000,45.000000);
+\draw[color=black,dotted] (228.000000,44.500000) -- (244.000000,44.500000);
+\draw[color=black,dotted] (228.000000,45.500000) -- (244.000000,45.500000);
+\filldraw[color=white,fill=white] (0.000000,41.250000) rectangle (-4.000000,78.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (0.000000,41.250000) -- (0.000000,78.750000);
+\draw[color=black] (-4.000000,60.000000) node[left] {$|0\rangle^{\otimes n}$};
+% Line 3: d e f W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,30.000000) -- (164.000000,30.000000);
+\draw[color=black,dotted] (164.000000,29.500000) -- (244.000000,29.500000);
+\draw[color=black,dotted] (164.000000,30.500000) -- (244.000000,30.500000);
+%   Deferring wire label at (0.000000,30.000000)
+% Line 3: d e f W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,15.000000) -- (164.000000,15.000000);
+\draw[color=black,dotted] (164.000000,14.500000) -- (244.000000,14.500000);
+\draw[color=black,dotted] (164.000000,15.500000) -- (244.000000,15.500000);
+%   Deferring wire label at (0.000000,15.000000)
+% Line 3: d e f W |0\rangle^{\otimes n}< style=dotted
+\draw[color=black,dotted] (0.000000,0.000000) -- (164.000000,0.000000);
+\draw[color=black,dotted] (164.000000,-0.500000) -- (244.000000,-0.500000);
+\draw[color=black,dotted] (164.000000,0.500000) -- (244.000000,0.500000);
+\filldraw[color=white,fill=white] (0.000000,-3.750000) rectangle (-4.000000,33.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (0.000000,-3.750000) -- (0.000000,33.750000);
+\draw[color=black] (-4.000000,15.000000) node[left] {$|0\rangle^{\otimes n}$};
+% Done with wires; drawing gates
+% Line 4: a H
+\begin{scope}
+\draw[fill=white] (16.000000, 75.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (16.000000, 75.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (16.000000, 75.000000) node {$H$};
+\end{scope}
+% Line 5: b H
+\begin{scope}
+\draw[fill=white] (16.000000, 60.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (16.000000, 60.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (16.000000, 60.000000) node {$H$};
+\end{scope}
+% Line 6: c H
+\begin{scope}
+\draw[fill=white] (16.000000, 45.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (16.000000, 45.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (16.000000, 45.000000) node {$H$};
+\end{scope}
+% Line 7: d C a
+\draw (45.000000,75.000000) -- (45.000000,30.000000);
+\begin{scope}
+\draw[fill=white] (45.000000, 30.000000) circle(3.000000pt);
+\clip (45.000000, 30.000000) circle(3.000000pt);
+\draw (42.000000, 30.000000) -- (48.000000, 30.000000);
+\draw (45.000000, 27.000000) -- (45.000000, 33.000000);
+\end{scope}
+\filldraw (45.000000, 75.000000) circle(1.500000pt);
+% Line 8: e C b
+\draw (51.000000,60.000000) -- (51.000000,15.000000);
+\begin{scope}
+\draw[fill=white] (51.000000, 15.000000) circle(3.000000pt);
+\clip (51.000000, 15.000000) circle(3.000000pt);
+\draw (48.000000, 15.000000) -- (54.000000, 15.000000);
+\draw (51.000000, 12.000000) -- (51.000000, 18.000000);
+\end{scope}
+\filldraw (51.000000, 60.000000) circle(1.500000pt);
+% Line 9: f C c
+\draw (57.000000,45.000000) -- (57.000000,0.000000);
+\begin{scope}
+\draw[fill=white] (57.000000, 0.000000) circle(3.000000pt);
+\clip (57.000000, 0.000000) circle(3.000000pt);
+\draw (54.000000, 0.000000) -- (60.000000, 0.000000);
+\draw (57.000000, -3.000000) -- (57.000000, 3.000000);
+\end{scope}
+\filldraw (57.000000, 45.000000) circle(1.500000pt);
+% Line 10: d C a
+\draw (83.000000,75.000000) -- (83.000000,30.000000);
+\begin{scope}
+\draw[fill=white] (83.000000, 30.000000) circle(3.000000pt);
+\clip (83.000000, 30.000000) circle(3.000000pt);
+\draw (80.000000, 30.000000) -- (86.000000, 30.000000);
+\draw (83.000000, 27.000000) -- (83.000000, 33.000000);
+\end{scope}
+\filldraw (83.000000, 75.000000) circle(1.500000pt);
+% Line 11: e C a
+\draw (109.000000,75.000000) -- (109.000000,15.000000);
+\begin{scope}
+\draw[fill=white] (109.000000, 15.000000) circle(3.000000pt);
+\clip (109.000000, 15.000000) circle(3.000000pt);
+\draw (106.000000, 15.000000) -- (112.000000, 15.000000);
+\draw (109.000000, 12.000000) -- (109.000000, 18.000000);
+\end{scope}
+\filldraw (109.000000, 75.000000) circle(1.500000pt);
+% Line 12: f C a
+\draw (135.000000,75.000000) -- (135.000000,0.000000);
+\begin{scope}
+\draw[fill=white] (135.000000, 0.000000) circle(3.000000pt);
+\clip (135.000000, 0.000000) circle(3.000000pt);
+\draw (132.000000, 0.000000) -- (138.000000, 0.000000);
+\draw (135.000000, -3.000000) -- (135.000000, 3.000000);
+\end{scope}
+\filldraw (135.000000, 75.000000) circle(1.500000pt);
+% Line 13: d M
+\draw[fill=white] (158.000000, 24.000000) rectangle (170.000000, 36.000000);
+\draw[very thin] (164.000000, 30.600000) arc (90:150:6.000000pt);
+\draw[very thin] (164.000000, 30.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (164.000000, 24.600000) -- +(80:10.392305pt);
+% Line 14: e M
+\draw[fill=white] (158.000000, 9.000000) rectangle (170.000000, 21.000000);
+\draw[very thin] (164.000000, 15.600000) arc (90:150:6.000000pt);
+\draw[very thin] (164.000000, 15.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (164.000000, 9.600000) -- +(80:10.392305pt);
+% Line 15: f M
+\draw[fill=white] (158.000000, -6.000000) rectangle (170.000000, 6.000000);
+\draw[very thin] (164.000000, 0.600000) arc (90:150:6.000000pt);
+\draw[very thin] (164.000000, 0.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (164.000000, -5.400000) -- +(80:10.392305pt);
+% Line 16: a H
+\begin{scope}
+\draw[fill=white] (196.000000, 75.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (196.000000, 75.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (196.000000, 75.000000) node {$H$};
+\end{scope}
+% Line 17: b H
+\begin{scope}
+\draw[fill=white] (196.000000, 60.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (196.000000, 60.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (196.000000, 60.000000) node {$H$};
+\end{scope}
+% Line 18: c H
+\begin{scope}
+\draw[fill=white] (196.000000, 45.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (196.000000, 45.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (196.000000, 45.000000) node {$H$};
+\end{scope}
+% Line 19: a M
+\draw[fill=white] (222.000000, 69.000000) rectangle (234.000000, 81.000000);
+\draw[very thin] (228.000000, 75.600000) arc (90:150:6.000000pt);
+\draw[very thin] (228.000000, 75.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (228.000000, 69.600000) -- +(80:10.392305pt);
+% Line 20: b M
+\draw[fill=white] (222.000000, 54.000000) rectangle (234.000000, 66.000000);
+\draw[very thin] (228.000000, 60.600000) arc (90:150:6.000000pt);
+\draw[very thin] (228.000000, 60.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (228.000000, 54.600000) -- +(80:10.392305pt);
+% Line 21: c M
+\draw[fill=white] (222.000000, 39.000000) rectangle (234.000000, 51.000000);
+\draw[very thin] (228.000000, 45.600000) arc (90:150:6.000000pt);
+\draw[very thin] (228.000000, 45.600000) arc (90:30:6.000000pt);
+\draw[->,>=stealth] (228.000000, 39.600000) -- +(80:10.392305pt);
+% Done with gates; drawing ending labels
+% Done with ending labels; drawing cut lines and comments
+% Done with comments
+\end{tikzpicture}
