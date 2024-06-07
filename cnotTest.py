@@ -86,16 +86,16 @@ def cnotTest(
             ) as file:
                 file.write(str(result))
 
-# # Calls to run Simon's algorithm on the various supported backends.
-cnotTest('APIs/IBM_Work_API.txt', 'kyotoSimulator', 'IBMKyotoSimulator',
-              sleepTime=0.5)
-cnotTest('APIs/IBM_Work_API.txt', 'osakaSimulator', 'IBMOsakaSimulator',
-              sleepTime=0.5)
-cnotTest('APIs/IBM_Work_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator',
-              sleepTime=0.5)
-cnotTest('APIs/IBM_Work_API.txt', 'kyoto', 'IBMKyoto',
-              iterations=3)
-cnotTest('APIs/IBM_Work_API.txt', 'osaka', 'IBMOsaka',
-              iterations=3)
-cnotTest('APIs/IBM_Work_API.txt', 'brisbane', 'IBMBrisbane',
-              iterations=3)
+# Calls to run Simon's algorithm on the various supported backends.
+# cnotTest('APIs/IBM_Work_API.txt', 'kyotoSimulator', 'IBMKyotoSimulator',
+#               sleepTime=0.5)
+# cnotTest('APIs/IBM_Work_API.txt', 'osakaSimulator', 'IBMOsakaSimulator',
+#               sleepTime=0.5)
+# cnotTest('APIs/IBM_Work_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator',
+#               sleepTime=0.5)
+# cnotTest('APIs/IBM_Work_API.txt', 'kyoto', 'IBMKyoto',
+#               iterations=3)
+# cnotTest('APIs/IBM_Work_API.txt', 'osaka', 'IBMOsaka',
+#               iterations=3)
+# cnotTest('APIs/IBM_Work_API.txt', 'brisbane', 'IBMBrisbane',
+#               iterations=3)
