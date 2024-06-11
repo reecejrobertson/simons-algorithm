@@ -1,0 +1,20 @@
+MIXGATES 0
+a b c W |0\rangle^{\otimes n}< style=dotted
+d e f W |0\rangle^{\otimes n}< style=dotted
+a H
+b H
+c H
+d C a
+e C b
+f C c
+d C a
+d M
+e M
+f M
+a H
+b H
+c H
+a M
+b M
+c M
+DEPTHPAD 10
