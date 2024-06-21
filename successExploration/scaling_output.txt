@@ -1,0 +1,8 @@
+3 qubits, 3 circuit evaluation, 1000 shots, success probability=0.634
+4 qubits, 4 circuit evaluation, 1000 shots, success probability=0.721
+5 qubits, 5 circuit evaluation, 1000 shots, success probability=0.808
+6 qubits, 6 circuit evaluation, 1000 shots, success probability=0.91
+7 qubits, 7 circuit evaluation, 1000 shots, success probability=0.942
+8 qubits, 8 circuit evaluation, 1000 shots, success probability=0.981
+9 qubits, 9 circuit evaluation, 1000 shots, success probability=0.989
+10 qubits, 10 circuit evaluation, 1000 shots, success probability=0.994

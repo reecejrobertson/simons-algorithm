@@ -46,25 +46,30 @@ def executeSimons(
         print(f'Iteration {i} of {iterations}:')
 
         # Get a backend. Can be IBM simulators and IonQ devices and simulators.
-        # Note that IBM devices were accessed using the 'Composer' interface.
         backend = None
         match device.lower():
             case 'harmony':
-                backend = provider.get_backend('ionq_harmony')
+                backend = provider.get_backend('ionq_qpu')
             case 'aria':
-                backend = provider.get_backend('ionq_aria-1')
+                backend = provider.get_backend('ionq_qpu')
             case 'harmonysimulator':
                 backend = provider.get_backend('ionq_simulator')
                 backend.set_options(noise_model='harmony')
             case 'ariasimulator':
                 backend = provider.get_backend('ionq_simulator')
                 backend.set_options(noise_model='aria-1')
+            case 'brisbane':
+                backend = provider.get_backend('ibm_brisbane')
             case 'brisbanesimulator':
                 backend = provider.get_backend('ibm_brisbane')
                 backend = AerSimulator.from_backend(backend)
+            case 'osaka':
+                backend = provider.get_backend('ibm_osaka')
             case 'osakasimulator':
                 backend = provider.get_backend('ibm_osaka')
                 backend = AerSimulator.from_backend(backend)
+            case 'kyoto':
+                backend = provider.get_backend('ibm_kyoto')
             case 'kyotosimulator':
                 backend = provider.get_backend('ibm_kyoto')
                 backend = AerSimulator.from_backend(backend)
@@ -92,22 +97,22 @@ def executeSimons(
             transpiled_circuit = transpile(circuit, backend)
             job = backend.run(transpiled_circuit, shots=shots)
 
-            # Check if job is done.
-            while job.status() is not JobStatus.DONE:
-                print('\t\tJob status is', job.status() )
-                time.sleep(sleepTime)
+            # # Check if job is done.
+            # while job.status() is not JobStatus.DONE:
+            #     print('\t\tJob status is', job.status() )
+            #     time.sleep(sleepTime)
 
-            # When it is done, save the results to a file.
-            print('\t\tJob status is', job.status())
-            result = job.result().get_counts()
-            with open(
-                f'data/{directory}/n{n}i{i}.txt', 'w+'
-            ) as file:
-                file.write(str(result))
+            # # When it is done, save the results to a file.
+            # print('\t\tJob status is', job.status())
+            # result = job.result().get_counts()
+            # with open(
+            #     f'data/{directory}/n{n}i{i}.txt', 'w+'
+            # ) as file:
+            #     file.write(str(result))
 
 # # Calls to run Simon's algorithm on the various supported backends.
 # executeSimons('APIs/IonQ_Paid_API.txt', 'harmony', 'IonQHarmony',
-#               N=5, iterations=1, shots=8192, sleepTime=1800)
+#               N=5, iterations=2, shots=8192, sleepTime=1800)
 # executeSimons('APIs/IonQ_Paid_API.txt', 'aria', 'IonQAria',
 #               N=12, iterations=1, shots=4096, sleepTime=1800)
 # executeSimons('APIs/IonQ_API.txt', 'ariaSimulator', 'IonQAriaSimulator')
@@ -118,3 +123,11 @@ def executeSimons(
 #               N=7, sleepTime=0.5)
 # executeSimons('APIs/IBM_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulator',
 #               N=7, sleepTime=0.5)
+# executeSimons('APIs/IBM_API.txt', 'kyotoSimulator', 'IBMKyotoSimulatorSimple',
+#               N=7, sleepTime=0.5)
+# executeSimons('APIs/IBM_API.txt', 'brisbaneSimulator', 'IBMBrisbaneSimulatorSimple',
+#               N=7, sleepTime=0.5)
+# executeSimons('APIs/IBM_API.txt', 'kyoto', 'IBMKyotoSimple',
+#               iterations=3, sleepTime=30)
+# executeSimons('APIs/IBM_API.txt', 'brisbane', 'IBMBrisbaneSimple',
+#               iterations=3, sleepTime=30)
