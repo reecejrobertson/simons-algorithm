@@ -206,7 +206,7 @@
 \begin{minipage}[c][10cm][c]{0.78\textwidth}
   \begin{center}
     {\sc \huge Simon's algorithm in the NISQ cloud}\\[9mm]
-    {\Large Reece Robertson, Emery Doucet, Ernest Spicer, and Sebastian Deffner\\[6mm]
+    {\Large \textbf{Reece Robertson}, Emery Doucet, Ernest Spicer, and Sebastian Deffner\\[6mm]
     Department of Physics, University of Maryland Baltimore County, Baltimore, Maryland 21250, USA \\[1mm]
     }
   \end{center}
@@ -252,20 +252,30 @@ For instance, we show that two-qubit operations between distant superconducting 
 \pbox{0.9\textwidth}{0.23\textheight}{linewidth=2mm,framearc=0.1,linecolor=line,fillstyle=gradient,gradangle=0,gradbegin=white,gradend=white,gradmidpoint=1.0,framesep=1em}{
 \vspace{1cm}\begin{center}\pbox{0.8\textwidth}{}{linewidth=2mm,framearc=0.3,linecolor=line,fillstyle=gradient,gradangle=0,gradbegin=white,gradend=gray,gradmidpoint=1.0,framesep=1em}{\begin{center}\textbf{Background}\end{center}}\end{center}\vspace{1.25cm}
 
-Simon's problem takes as input an oracle function $U_f$ which operates on bitstrings of size $n$.
-The function is either one-to-one, or two-to-one with a fixed secret string $s$ that relates each pair of inputs.
-The objective is to classify the provided function into one of the two classes.
-Simon invented a quantum algorithm which completes this task in polynomial time, while a classical computer must run a probabilistic calculation with an exponential expected runtime.~\cite{ref1}
+\textbf{Simon's problem:}
+\begin{itemize}
+  \item Input: a black-box oracle function $U_f$ which operates on bitstrings of size $n$.
+  \begin{itemize}
+    \item $U_f$ is two-to-one with a ``secret string'' $s$ that relates input pairs.
+  \end{itemize}
+  \item Objective: Determine $s$ where the only allowable action is to make queries to $U_f$.
+  \item Classical runtime is exponential in $n$. Quantum runtime is linear in $n$.
+\end{itemize}
 
 \begin{center}
   \includegraphics[height=4.5cm,angle=0]{genericAlgorithm.png}
 \end{center}
 
-Above is the quantum circuit diagram for Simon's algorithm.
-Note the use of two quantum registers of size $n$, both initialized to the state $|0\rangle$, as well as the oracle $U_f$.
-The algorithm uses two Hadamard transformations and $U_f$ to create a superposition over all the size $n$ bitstrings that are orthogonal to the secret string $s$.
-An iteration of the algorithm is successful if the final measurement result is indeed orthogonal to $s$ (this is always true in the noise free case).
-The entire algorithm is successful if a complete set of $n-1$ linearly independent bitstrings are measured and the resulting system is solved classically in polynomial-time.
+\textbf{Simon's Algorithm:}~\cite{ref1}
+\begin{enumerate}
+  \item Initialize two quantum registers of size $n$ in the $|0\rangle$ state.
+  \item Apply two Hadamard transformations and $U_f$ to the registers as depicted above.
+  \begin{itemize}
+    \item This creates a superposition in the first register over all size $n$ bitstrings that are orthogonal to $s$.
+  \end{itemize}
+  \item Measure the registers to obtain a single size $n$ bitstring that is orthogonal to $s$.
+\end{enumerate}
+By iterating steps 1-3 to form a set of $n-1$ linearly independent bitstrings we can solve for $s$.
 
 }
 
@@ -275,29 +285,31 @@ The entire algorithm is successful if a complete set of $n-1$ linearly independe
 \vspace{1cm}\begin{center}\pbox{0.8\textwidth}{}{linewidth=2mm,framearc=0.3,linecolor=line,fillstyle=gradient,gradangle=0,gradbegin=white,gradend=gray,gradmidpoint=1.0,framesep=1em}{\begin{center}\textbf{The Quantum Cloud}\end{center}}\end{center}\vspace{1.25cm}
 
 Several large corporations as well as smaller start-up companies have made their NISQ devices available for cloud access.
-This offers exciting prospects for fundamental as well as applied research, as now with comparatively little effort ``quantum experiments'' can be performed.
-However, it has also already been demonstrated that the reported \emph{quantum volume}\footnote{The \emph{quantum volume} is defined using the number of qubits and the number of operations that can be effectively implemented on the device.}
-often overestimates what is experimentally accessible.
-
-This raises the somewhat natural question, how do algorithms designed for the very purpose of exhibiting quantum advantage perform on available NISQ devices?
 For our study, we had access to IBM's superconducting platform and IonQ's trapped ion devices.
 
 \textbf{Superconducting qubits -- IBM:}
-Quantum processors are made up superconducting transmon qubits are located in dilution refrigerators at the IBM Research headquarters at the Thomas J. Watson Research Center.
-For our work, we used the 127-qubit Brisbane, Osaka, and Kyoto superconducting quantum processors, for which noisy simulators are also provided.
-The device topologies for each quantum processing unit are depicted below (note that all are instances of the IBM Eagle chip design).
-
+\begin{itemize}
+  \item Quantum processors made of superconducting transmon qubits.
+  \item Physically located in dilution refrigerators at the Thomas J. Watson Research Center.
+  \item Largest existing processor has 1,121 qubits.
+  \item Chip topology limited to pairwise connections between qubits.
+  \item We used the 127-qubit Brisbane, Osaka, and Kyoto (all instances of the Eagle chip design below).
+  \item Noisy simulator models provided by IBM for these devices.
+\end{itemize}
 
 \begin{center}
   \includegraphics[height=12cm,angle=0]{ibmDevices.png}
 \end{center}
 
 \textbf{Ion traps -- IonQ:}
-A fundamentally different type of system are the trapped ion devices of IonQ, which are physically located here in College Park, Maryland.
-Typically, trapped ion NISQ devices exhibit several advantages, such as accuracy, predictability, and coherence time.
-However, such systems have the disadvantage that the number of qubits is much smaller.
-For instance, the largest IonQ device (Forte) has only 36 qubits.
-Some of the limitations arising from the small qubit number is made up by the fact that trapped ion computers possess full connectivity.
+\begin{itemize}
+  \item Quantum processors made of trapped ions.
+  \item Physically located here in College Park.
+  \item Largest existing processor has 36 qubits.
+  \item Chip topology allows for all-to-all qubit connectivity.
+  \item We used the 11-qubit Harmony, 25-qubit Aria, and 36-qubit Forte.
+  \item Noisy simulator models provided by IonQ for Harmony and Aria.
+\end{itemize}
 
 \begin{center}
   \includegraphics[height=12cm,angle=0]{ionqDevices.png}
@@ -311,40 +323,53 @@ Some of the limitations arising from the small qubit number is made up by the fa
 
 \vspace{1cm}\begin{center}\pbox{0.8\textwidth}{}{linewidth=2mm,framearc=0.3,linecolor=line,fillstyle=gradient,gradangle=0,gradbegin=white,gradend=gray,gradmidpoint=1.0,framesep=1em}{\begin{center}\textbf{Methods \& Results}\end{center}}\end{center}\vspace{1.25cm}
 
-We ran Simon's algorithm on the IBM superconducting and IonQ trapped ion quantum devices listed in ``The Quantum Cloud'' section.
-We also ran Simon's algorithm on each devices' corresponding simulator.
-Our process was as follows:
+\textbf{Methods:}
+
+Our objective was to determine the frequency with which Simon's algorithm failed on NISQ technology.
+To this end, we ran Simon's algorithm on the devices and simulator listed previously using the following process:
 \begin{enumerate}
   \item We initialized a variable $n$ to iterate over the values 2—12.
   \item For each $n$, we defined a two-to-one function using the string of $n$ 1s as the secret string $s$.
-  This represents the most complex oracle in terms of the number of two-qubit gates required to implement it.
+  \begin{itemize}
+    \item This represents the most complex oracle in terms of the number of two-qubit gates required.
+  \end{itemize}
   \item We prepared an implementation of Simon's algorithm to classify this function.
-  \item We repeated the implementation 8192 times.
-  \item We counted the number of times the implementation produced a final result which was not orthogonal to $s$, indicating a failure of the algorithm (the ``algorithmic error'').
+  \item We repeated the implementation for 8192 shots.
+  \item We counted the fraction of shots that produced a final result \textit{not} orthogonal to $s$---the \textit{algorithmic error}.
+  \begin{itemize}
+    \item These shots indicate presence of hardware noise which resulted in a failure of the implementation.
+  \end{itemize}
   \item We averaged the algorithmic error of each device over many repetitions of steps 1-5, and plotted the results.
 \end{enumerate}
-Our findings are presented in the figures below.
-The first plot shows the algorithmic error on each IonQ device and simulator scales linearly.
-This indicates two things: first, that the IonQ devices scale consistently throughout the ``intermediate scale,'' and second, IonQ simulators agree with the general behavior of the real devices (up to a constant factor).
-However, with an observed 30\% algorithmic error for $n=12$, the IonQ devices are not performing particularly well---we expect this amount of error to nullify quantum advantage.
 
-\begin{center}
-  \includegraphics[height=12cm,angle=0]{IonQComparisonTest.pdf}
-\end{center}
-
-The second plot shows that IBM Brisbane experiences a nonlinear jump in algorithmic error at $n=4$, and by the moderately sized $n>8$, the algorithm fails entirely for this oracle.
-More curious is the output of the noisy simulators.
-The IBM AER local simulators all predict a roughly linear scaling in algorithmic error as problem size increases, similar to what was observed on IonQ but in sharp contrast to the IBM results.
-
-A plausible hypothesis is that this increase in error on superconducting hardware coincides with the addition of a number of swap gates into the algorithm due to the limited chip layout.
-Interestingly, however, the simulated algorithm also has swap gates of the same pattern, but the jump in error is not observed.
-Thus, the dramatic jump in algorithmic error observed on the hardware may be due to correlated errors that accompany the addition of the swap operations which is not captured in the noise model of the simulators. 
+\textbf{IBM Results:}
+\begin{itemize}
+  \item IBM simulators predict a roughly linear scaling in algorithmic error as a function of $n$.
+  \item IBM devices experience a nonlinear jump in algorithmic error at $2n=8$ (or $2n=10$ for Kyoto).
+  \begin{itemize}
+    \item This increase in error on hardware coincides with the addition of swap gates into the algorithm.
+    \item These swap operations may introduce correlated errors not captured in the simulators' noise model.
+  \end{itemize}
+  \item The observed 50\% algorithmic error for $2n\geq12$ demonstrates a failure of the algorithm.
+\end{itemize}
 
 \begin{center}
   \includegraphics[height=12cm,angle=0]{IBMComparisonTest.pdf}
 \end{center}
 
-In short, we find that the algorithmic error of Simon's algorithm on NISQ devices scales at least linearly, and all devices show irrecoverable error for intermediate-scale problems ($n=12$).
+\textbf{IonQ Results:}
+\begin{itemize}
+  \item IonQ simulators predict a roughly linear scaling in algorithmic error as a function of $n$.
+  \item IonQ devices demonstrate a roughly linear scaling in algorithmic error as a function of $n$.
+  \item On Aria, there is a roughly constant factor of 2 difference between the simulator and hardware results.
+  \item The observed 30\% algorithmic error for $2n\geq24$ will likely nullify quantum advantage.
+\end{itemize}
+
+\begin{center}
+  \includegraphics[height=12cm,angle=0]{IonQComparisonTest.pdf}
+\end{center}
+
+In sum, we find that the algorithmic error of Simon's algorithm on NISQ devices scales at least linearly, and all devices show irrecoverable error for intermediate-scale problems ($2n=24$).
 
 }
 
@@ -380,9 +405,12 @@ In short, we find that the algorithmic error of Simon's algorithm on NISQ device
   \end{tabular}
 \end{center}
 
-Performance metrics for IBM and IonQ devices.
-Note that for one and two qubit gate errors and times, IBM reports median values while IonQ reports average values.
-The native gate set supported by the IBM devices includes: ECR, ID, RZ, SX, and X gates; while the native gate set for the IonQ devices consists of: MS, GPI, and GPI2 gates (IonQ Forte also implements ZZ gates natively).
+\textbf{Notes:}
+\begin{itemize}
+  \item IBM reports median values; IonQ reports average values.
+  \item IBM native gate set: ECR, ID, RZ, SX, and X.
+  \item IonQ native gate set: MS, GPI, and GPI2 (Forte includes ZZ).
+\end{itemize}
 
 }
 

@@ -1,18 +1,17 @@
 # Fdb version 4
-["xdvipdfmx"] 1722372204.91193 "poster.xdv" "poster.pdf" "poster" 1722372206.36007 0
-  "poster.xdv" 1722372204.85294 89316 f6ff9e522d452a90a44ceafb570ac9f6 "xelatex"
+["xdvipdfmx"] 1722489577.58042 "poster.xdv" "poster.pdf" "poster" 1722489579.88143 0
+  "poster.xdv" 1722489577.44807 70264 10122fd468a455b84c8f12e533163d2a "xelatex"
   (generated)
   "poster.pdf"
   (rewritten before read)
-["xelatex"] 1722372204.43414 "/home/reecejrobertson/Desktop/simons-algorithm/poster/poster.tex" "poster.xdv" "poster" 1722372206.35895 0
-  "/home/reecejrobertson/Desktop/simons-algorithm/poster/poster.tex" 1722372196.55393 17180 30a1fb658dbb143c5072b4b593a50f3b ""
+["xelatex"] 1722489576.77832 "/home/reecejrobertson/Desktop/simons-algorithm/poster/poster.tex" "poster.xdv" "poster" 1722489579.88034 0
+  "/home/reecejrobertson/Desktop/simons-algorithm/poster/poster.tex" 1722489564.57805 15869 5a864a4a04435285d05321ac742ed88a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm" 1136768653 1116 4e6ba9d7914baa6482fd69f67d126380 ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -145,8 +144,8 @@
   "genericAlgorithm.png" 1722365458.38131 11790 83080e04f246d8ae5a4a3296d3fd2b40 ""
   "ibmDevices.png" 1722368566.21013 389147 b70837130042e72597eb28a1b9f43e7d ""
   "ionqDevices.png" 1722368605.49217 1297340 042da2d58cc39361c293f12b8e0c4e9d ""
-  "poster.aux" 1722372204.85294 66 f0cceabbf3fbe53d961db4be4ec4ee06 "xelatex"
-  "poster.tex" 1722372196.55393 17180 30a1fb658dbb143c5072b4b593a50f3b ""
+  "poster.aux" 1722489577.44707 66 f0cceabbf3fbe53d961db4be4ec4ee06 "xelatex"
+  "poster.tex" 1722489564.57805 15869 5a864a4a04435285d05321ac742ed88a ""
   (generated)
   "a0header.ps"
   "poster.aux"

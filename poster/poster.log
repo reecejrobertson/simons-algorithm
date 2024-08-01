@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.30)  30 JUL 2024 16:43
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.30)  1 AUG 2024 01:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -637,7 +637,7 @@ Overfull \hbox (6.97252pt too wide) in paragraph at lines 221--222
 File: genericAlgorithm.png Graphic file (type bmp)
 <genericAlgorithm.png>
 
-Overfull \hbox (6.19666pt too wide) in paragraph at lines 270--270
+Overfull \hbox (6.19666pt too wide) in paragraph at lines 280--280
  [] 
  []
 
@@ -645,10 +645,10 @@ File: ibmDevices.png Graphic file (type bmp)
 <ibmDevices.png>
 File: ionqDevices.png Graphic file (type bmp)
 <ionqDevices.png>
-File: IonQComparisonTest.pdf Graphic file (type pdf)
-<use IonQComparisonTest.pdf>
 File: IBMComparisonTest.pdf Graphic file (type pdf)
 <use IBMComparisonTest.pdf>
+File: IonQComparisonTest.pdf Graphic file (type pdf)
+<use IonQComparisonTest.pdf>
 [1
 
 ] (./poster.aux)
@@ -658,12 +658,12 @@ L3 programming layer <2023-12-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16336 strings out of 474832
- 321911 string characters out of 5759704
- 1982106 words of memory out of 5000000
- 38096 multiletter control sequences out of 15000+600000
- 572528 words of font info for 102 fonts, out of 8000000 for 9000
+ 16302 strings out of 474832
+ 321285 string characters out of 5759704
+ 1981106 words of memory out of 5000000
+ 38070 multiletter control sequences out of 15000+600000
+ 566220 words of font info for 73 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 81i,14n,87p,490b,715s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 81i,13n,87p,490b,715s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on poster.xdv (1 page, 89316 bytes).
+Output written on poster.xdv (1 page, 70264 bytes).
